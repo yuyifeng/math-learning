@@ -17,7 +17,7 @@ function playTone(
   startTime: number,
   duration: number,
   type: OscillatorType,
-  volume = 0.14,
+  volume = 1,
 ) {
   const oscillator = context.createOscillator()
   const gain = context.createGain()
@@ -42,20 +42,20 @@ function playQuack(context: AudioContext, startTime: number) {
   const endTime = startTime + 0.19
 
   oscillator.type = 'sawtooth'
-  oscillator.frequency.setValueAtTime(560, startTime)
+  oscillator.frequency.setValueAtTime(980, startTime)
   oscillator.frequency.exponentialRampToValueAtTime(
-    210,
+    420,
     startTime + 0.08,
   )
-  oscillator.frequency.exponentialRampToValueAtTime(290, endTime)
+  oscillator.frequency.exponentialRampToValueAtTime(620, endTime)
 
   filter.type = 'bandpass'
-  filter.frequency.setValueAtTime(820, startTime)
-  filter.Q.setValueAtTime(1.4, startTime)
+  filter.frequency.setValueAtTime(1500, startTime)
+  filter.Q.setValueAtTime(0.8, startTime)
 
   gain.gain.setValueAtTime(0.0001, startTime)
-  gain.gain.exponentialRampToValueAtTime(0.22, startTime + 0.012)
-  gain.gain.exponentialRampToValueAtTime(0.1, startTime + 0.07)
+  gain.gain.exponentialRampToValueAtTime(1, startTime + 0.012)
+  gain.gain.exponentialRampToValueAtTime(0.65, startTime + 0.07)
   gain.gain.exponentialRampToValueAtTime(0.0001, endTime)
 
   oscillator.connect(filter)

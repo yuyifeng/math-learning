@@ -66,7 +66,7 @@ export function SummaryPage({
           </span>
           <p className="eyebrow">练习总结</p>
           <h1 id="summary-title">先完成一轮练习吧</h1>
-          <p>完成 5 道题后，这里会展示准确率、星星和复习建议。</p>
+          <p>完成 10 道题后，这里会展示准确率、星星和复习建议。</p>
           <button
             className="button button--accent"
             type="button"
